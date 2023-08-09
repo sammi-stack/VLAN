@@ -1,0 +1,27 @@
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname SW-3
+SW-3(config)#vlan 10
+SW-3(config-vlan)# name HR
+SW-3(config-vlan)#vlan 20
+SW-3(config-vlan)# name Top-Managment
+SW-3(config-vlan)#vlan 30
+SW-3(config-vlan)# name Accounts
+SW-3(config-vlan)#vlan 40
+SW-3(config-vlan)# name Sales
+SW-3(config-vlan)#vlan 50
+SW-3(config-vlan)# name Managers
+SW-3(config-vlan)#vlan 100
+SW-3(config-vlan)# name IT
+SW-3(config-vlan)#exit
+SW-3(config)#interface GigabitEthernet0/1
+SW-3(config-if)#switchport mode trunk
+SW-3(config-if)#exit
+SW-3(config)#interface GigabitEthernet0/2
+SW-3(config-if)#switchport mode trunk
+SW-3(config)#interface range fastEthernet 0/1-24
+SW-3(config-if-range)#switchport mode access
+SW-3(config-if-range)#switchport access vlan 40
+SW-3(config-if-range)#do wr
+SW-3(config-if-range)#end
+SW-3#

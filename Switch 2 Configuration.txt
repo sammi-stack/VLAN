@@ -1,0 +1,41 @@
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname SW-2
+SW-2(config)#vlan 10
+SW-2(config-vlan)# name HR
+SW-2(config-vlan)#vlan 20
+SW-2(config-vlan)# name Top-Managment
+SW-2(config-vlan)#vlan 30
+SW-2(config-vlan)# name Accounts
+SW-2(config)#
+SW-2(config)#vlan 10
+SW-2(config-vlan)# name HR
+SW-2(config-vlan)#vlan 20
+SW-2(config-vlan)# name Top-Managment
+SW-2(config-vlan)#vlan 30
+SW-2(config-vlan)# name Accounts
+SW-2(config-vlan)#vlan 40
+SW-2(config-vlan)# name Sales
+SW-2(config-vlan)#vlan 50
+SW-2(config-vlan)# name Managers
+SW-2(config-vlan)#vlan 100
+SW-2(config-vlan)# name IT
+SW-2(config-vlan)#end
+SW-2#configure terminal
+SW-2(config)#interface GigabitEthernet0/1
+SW-2(config-if)#switchport mode trunk
+SW-2(config-if)#exit
+SW-2(config)#interface GigabitEthernet0/2
+SW-2(config-if)#switchport mode trunk
+SW-2(config-if)#exit
+SW-2(config)# interface GigabitEthernet0/1
+SW-2(config-if)#switchport mode trunk
+SW-2(config)#interface range fastEthernet 0/1-12
+SW-2(config-if-range)#switchport mode access
+SW-2(config-if-range)#switchport access vlan 30
+SW-2(config-if-range)#exit
+SW-2(config)#interface range fastEthernet 0/13-24
+SW-2(config-if-range)#switchport mode access
+SW-2(config-if-range)#switchport access vlan 40
+SW-2(config-if-range)#do wr
+SW-2(config-if-range)#end 
